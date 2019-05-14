@@ -1,3 +1,4 @@
+/*
 package pl.edu.wszib.logproject;
 
 
@@ -7,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.edu.wszib.logproject.dao.SelectedColorDao;
+import pl.edu.wszib.logproject.dao.SelectedActionDao;
 import pl.edu.wszib.logproject.domain.SelectedAction;
 
 import java.util.Date;
@@ -26,7 +27,7 @@ public class SelectedActionDaoTest {
     public static final String COLOR2 = "blue";
 
     @Autowired
-    SelectedColorDao selectedColorDao;
+    SelectedActionDao selectedActionDao;
 
     @Before
     public void setUp() throws Exception {
@@ -37,8 +38,8 @@ public class SelectedActionDaoTest {
         assertNull(selectedAction1.getAddEntry()); //tu sprawdzxa czy nie ma nic w bazie na wstępie
         assertNull(selectedAction2.getAddEntry());
 
-        selectedColorDao.save(selectedAction1); //zapisuje obiekt do bazy przy teście
-        selectedColorDao.save(selectedAction2); //zapisuje obiekt do bazy przy teście
+        selectedActionDao.save(selectedAction1); //zapisuje obiekt do bazy przy teście
+        selectedActionDao.save(selectedAction2); //zapisuje obiekt do bazy przy teście
 
         assertNotNull(selectedAction1.getAddEntry()); // tu sprawdza czy się zapisało
         assertNotNull(selectedAction2.getAddEntry()); // tu sprawdza czy się zapisało
@@ -49,7 +50,7 @@ public class SelectedActionDaoTest {
     @Test
     public void testFetchAllData() {// metoda wyciągająca (fetch) wszystkie zapisane rekordy
 
-        Iterable<SelectedAction> selectedColors = selectedColorDao.findAll();//pobiera wszystkie elementy z bazy danych
+        Iterable<SelectedAction> selectedColors = selectedActionDao.findAll();//pobiera wszystkie elementy z bazy danych
         int counter = 0;
         for (SelectedAction selectedAction : selectedColors){
             counter++;
@@ -60,9 +61,10 @@ public class SelectedActionDaoTest {
     @Test
     public void testFindByColor (){
 
-        List<SelectedAction> selectedActions = selectedColorDao.findByColor(COLOR1);
+        List<SelectedAction> selectedActions = selectedActionDao.findByColor(COLOR1);
         assertEquals(COLOR1, selectedActions.get(0).getSearch());
 
     }
 
 }
+*/

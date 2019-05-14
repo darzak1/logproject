@@ -1,47 +1,98 @@
 package pl.edu.wszib.logproject.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "selected_action")
+@Table(name = "new_entry")// tu nie tabela ale formularz ma być
 public class SelectedAction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String addEntry;
-    private String search;
-    private String stats;
+    private Date entryDate;//data wprowadzenia zgłoszenia
+    private String source;//określenie żródła zdarzenia
+    private String opType;//rodzaj operacji
+    private String admin;//wykonawca
+    private String coAdmin;//współwykonawca
+    private String descript;//opis podjętych czynności
+    private String result;//określa czy zdarzenie zostało rozwiązane (tak, nie)
+    private Date endDate;//data zakończenia zgłoszenia
 
-    public SelectedAction() {
+
+    public SelectedAction(Date entryDate, Date date) {
     }
 
-    public SelectedAction(String addEntry, String search, String stats) {
-        this.addEntry = addEntry;
-        this.search = search;
-        this.stats = stats;
+    public SelectedAction(String source, String opType, String admin, String coAdmin, String descript, String result, Date endDate) {
+        this.source = source;
+        this.opType = opType;
+        this.admin = admin;
+        this.coAdmin = coAdmin;
+        this.descript = descript;
+        this.result = result;
+        this.endDate = endDate;
     }
 
-    public String getAddEntry() {
-        return addEntry;
+    public Date getEntryDate() {
+        return entryDate;
     }
 
-    public void setAddEntry(String addEntry) {
-        this.addEntry = addEntry;
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
     }
 
-    public String getSearch() {
-        return search;
+    public String getSource() {
+        return source;
     }
 
-    public void setSearch(String search) {
-        this.search = search;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public String getStats() {
-        return stats;
+    public String getOpType() {
+        return opType;
     }
 
-    public void setStats(String stats) {
-        this.stats = stats;
+    public void setOpType(String opType) {
+        this.opType = opType;
+    }
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
+    }
+
+    public String getCoAdmin() {
+        return coAdmin;
+    }
+
+    public void setCoAdmin(String coAdmin) {
+        this.coAdmin = coAdmin;
+    }
+
+    public String getDescript() {
+        return descript;
+    }
+
+    public void setDescript(String descript) {
+        this.descript = descript;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }
