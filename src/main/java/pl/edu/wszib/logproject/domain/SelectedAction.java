@@ -19,7 +19,7 @@ public class SelectedAction {
     private Date endDate;//data zakończenia zgłoszenia
 
 
-    public SelectedAction(Date entryDate, Date date) {
+    public SelectedAction(String entryDate, Date date) {
     }
 
     public SelectedAction(String source, String opType, String admin, String coAdmin, String descript, String result, Date endDate) {
