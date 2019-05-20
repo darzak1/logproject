@@ -1,6 +1,5 @@
 package pl.edu.wszib.logproject.controller;
 
-import com.microsoft.sqlserver.jdbc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -13,25 +12,25 @@ import pl.edu.wszib.logproject.domain.SelectedAction;
 import java.util.Date;
 
 @Controller
-public class SelectedNew_EntryController {
+public class SelectedNewEntryDateController {
 
-    @Value("${app.header.addEntry}")
+    @Value("Podaj Date")
     private String title;
 
     @Autowired
     SelectedNew_EntryDao selectedNewEntryDao;
 
-    @GetMapping({"/add", "/add/{entryDate}"})
-    public String selectedNew_Entry(
+    @GetMapping({"/entryDate"})
+    public Date NewEntryDate(
             @PathVariable(required = false) Date entryDate,  Model model) {
 
-        if (!StringUtils.isEmpty(entryDate.toString())) {
+        if (entryDate != null) {
             selectedNewEntryDao.save(new SelectedAction(entryDate, new Date()));
         }
 
 
-        model.addAttribute("add", entryDate);
-        return "add";
+        model.addAttribute("entryDate", entryDate);
+        return entryDate;
     }
 
 }

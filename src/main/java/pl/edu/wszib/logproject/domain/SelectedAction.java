@@ -19,10 +19,11 @@ public class SelectedAction {
     private Date endDate;//data zakończenia zgłoszenia
 
 
-    public SelectedAction(String entryDate, Date date) {
+    public SelectedAction() {
     }
 
-    public SelectedAction(String source, String opType, String admin, String coAdmin, String descript, String result, Date endDate) {
+    public SelectedAction(Date entryDate, Date endDate) {
+        this.entryDate = entryDate;
         this.source = source;
         this.opType = opType;
         this.admin = admin;

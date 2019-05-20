@@ -1,3 +1,4 @@
+/*
 package pl.edu.wszib.logproject.dao;
 
 import org.junit.Before;
@@ -16,15 +17,15 @@ import static org.junit.Assert.*;
 
 public class SelectedNew_EntryDaoTest {
 
-    public static final Date DATE1 = "15/05/2019";
-    public static final Date DATE2 = "14/05/2019";
+    public static final Date DATE1 = new Date();
+    public static final Date DATE2 = new Date();
 
     @Autowired
     SelectedNew_EntryDao selectedNew_entryDao;
 
     @Before
     public void setUp() throws Exception {
-        SelectedAction selectedAction1 = new SelectedAction(DATE1, new Date());
+        SelectedAction selectedAction1 = new SelectedAction(DATE1 new Date());
         SelectedAction selectedAction2 = new SelectedAction(DATE2, new Date());
 
         assertNull(selectedAction1.getEntryDate());
@@ -41,7 +42,7 @@ public class SelectedNew_EntryDaoTest {
     public void testFetchAllData() {
         Iterable<SelectedAction> SelectedActions = selectedNew_entryDao.findAll();
         int counter = 0;
-        for (SelectedAction SelectedAction : SelectedActions) {
+        for (SelectedAction electedAction : SelectedActions) {
             counter++;
         }
         assertTrue(counter >= 2);
@@ -49,10 +50,10 @@ public class SelectedNew_EntryDaoTest {
 
     @Test
     public void testFindByColor() {
-        List<SelectedAction> SelectedActions = selectedNew_entryDao.findAllByEntryDate(DATE1);
-        assertEquals(DATE1, SelectedActions.get(0).getEntryDate());
+        List<SelectedAction> selectedActions = selectedNew_entryDao.findAllByEntryDate(DATE1);
+        assertEquals(DATE1, selectedActions.get(0).getEntryDate());
     }
 
 
 
-}
+}*/
