@@ -1,36 +1,66 @@
 package pl.edu.wszib.logproject.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
+
+
+
 @Entity
-@Table(name = "new_entry")// tu nie tabela ale formularz ma być
-public class SelectedAction {
+@Table(name = "selectedActions")// tu nie tabela ale formularz ma być
+public class Form {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer Id;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotNull
     private Date entryDate;//data wprowadzenia zgłoszenia
+    @NotNull
+    @Size(min = 2, max = 30)
     private String source;//określenie żródła zdarzenia
+    @NotNull
     private String opType;//rodzaj operacji
+    @NotNull
+    @Size(min = 2, max = 30)
     private String admin;//wykonawca
+    @Size(min = 2, max = 30)
     private String coAdmin;//współwykonawca
-    private String descript;//opis podjętych czynności
-    private String result;//określa czy zdarzenie zostało rozwiązane (tak, nie)
+    @NotNull
+    private String description;//opis podjętych czynności
+    @NotNull
+    private String status;//określa realizacji zgłoszenia (pole wyboru)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date endDate;//data zakończenia zgłoszenia
 
 
-    public SelectedAction() {
+    public Form() {
     }
 
-    public SelectedAction(Date entryDate, Date endDate) {
+    public Form(@NotNull Date entryDate, @NotNull @Size(min = 2, max = 30) String source,
+                @NotNull String opType, @NotNull @Size(min = 2, max = 30) String admin,
+                @Size(min = 2, max = 30) String coAdmin,
+                @NotNull String description, @NotNull String status, Date endDate) {
         this.entryDate = entryDate;
         this.source = source;
         this.opType = opType;
         this.admin = admin;
         this.coAdmin = coAdmin;
-        this.descript = descript;
-        this.result = result;
+        this.description = description;
+        this.status = status;
         this.endDate = endDate;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public Date getEntryDate() {
@@ -73,20 +103,20 @@ public class SelectedAction {
         this.coAdmin = coAdmin;
     }
 
-    public String getDescript() {
-        return descript;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescript(String descript) {
-        this.descript = descript;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getResult() {
-        return result;
+    public String getStatus() {
+        return status;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getEndDate() {

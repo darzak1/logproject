@@ -8,6 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface SelectedNew_EntryDao extends CrudRepository <SelectedAction, Date> {
-    List<SelectedAction> findAllByEntryDate(Date entryDate);
+public interface FormDao extends CrudRepository <Form, Date> {
+    List<Form> findByEntryDate(Date entryDate);
 }
