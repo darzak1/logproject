@@ -14,35 +14,39 @@
 
 </head>
 <body>
+
 <div th:include="form/header"></div>
+
+
 <div class="Form">
 
     <section class="rain"></section>
-    <div th:bgcolor="blue">
-        <article style="color: blanchedalmond" align="center" th:size="50px">Wprowadź Nowe Zgłoszenie</article>
-    <!--<h1 style="font-style: oblique " align="center" th:bgcolor="blue">Wprowadź Nowe Zgłoszenie</h1>-->
-    </div>
+
+        <article  style="color: blanchedalmond; font-size: 80px" align="center">Wprowadź Nowe Zgłoszenie</article>
 
 
-    <form action="#" th:action="@{insert}" th:object="${forms}" method="post">
-        <p>Data zgłoszenia: <input class="Form" type="datetime-local" th:field="${forms}"/>
+
+
+    <form style="color: blanchedalmond" action="#" th:action="@{insert}" th:object="${forms}" method="post">
+        <p> Data zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="${forms}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}"></span></p>
-        <p>Źródło zdarzenia: <input class="Form" type="text" th:field="*{source}"/>
+        <p>Źródło zdarzenia: <input style="color: black" class="Form" type="text" th:field="*{source}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{source}"></span></p>
-        <p>Typ zgłoszenia: <input class="Form" type="text" th:field="*{opType}"/>
+        <p>Typ zgłoszenia: <input style="color: black" class="Form" type="text" th:field="*{opType}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('opType')}" th:errors="*{opType}"></span></p>
-        <p>Wykonawca: <input class="Form" type="text" th:field="*{admin}"/>
+        <p>Wykonawca: <input style="color: black" class="Form" type="text" th:field="*{admin}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('admin')}" th:errors="*{admin}"></span></p>
-        <p>Współwykonawca: <input class="Form" type="text" th:field="*{{coAdmin}}"/>
+        <p>Współwykonawca: <input style="color: black" class="Form" type="text" th:field="*{{coAdmin}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('coAdmin')}" th:errors="*{coAdmin}"></span></p>
-        <p>Opis czynności: <input class="Form" type="text" th:field="*{{description}}"/>
+        <p>Opis czynności: <input style="color: black" class="Form" type="text" th:field="*{{description}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></p>
-        <p>Status zgłoszenia: <input class="Form" type="text" th:field="*{{result}}"/>
+        <p>Status zgłoszenia: <input style="color: black" class="Form" type="text" th:field="*{{result}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('result')}" th:errors="*{result}"></span></p>
-        <p>Data zakończenia zgłoszenia: <input class="Form" type="datetime-local" th:field="*{{endDate}}"/>
+        <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="*{{endDate}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span></p>
-        <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+        <p><input style="color: black" type="submit" value="Submit"/> <input style="color: black" type="reset" value="Reset"/></p>
     </form>
 </div>
+
 </body>
 </html>
