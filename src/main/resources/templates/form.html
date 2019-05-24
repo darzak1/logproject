@@ -9,26 +9,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="rain.css">
-    <script src="rain.js"></script>
+    <link rel="stylesheet" href="css/rain.css">
 
 </head>
 <body>
-
-<div th:include="form/header"></div>
-
-
-<div class="Form">
-
-    <section class="rain"></section>
+<section class="rain">
+<div class="container">
 
         <article  style="color: blanchedalmond; font-size: 80px" align="center">Wprowadź Nowe Zgłoszenie</article>
+        <!--  -->
 
-
-
-
-    <form style="color: blanchedalmond" action="#" th:action="@{insert}" th:object="${forms}" method="post">
-        <p> Data zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="${forms}"/>
+    <form style="color: blanchedalmond" action="#" th:action="@{form}" th:object="${form}" method="post">
+        <p> Data zgłoszenia: <input style="color: black"  type="datetime-local" th:field="*{entryDate}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}"></span></p>
         <p>Źródło zdarzenia: <input style="color: black" class="Form" type="text" th:field="*{source}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{source}"></span></p>
@@ -40,13 +32,13 @@
             <span style="color: red;" th:if="${#fields.hasErrors('coAdmin')}" th:errors="*{coAdmin}"></span></p>
         <p>Opis czynności: <input style="color: black" class="Form" type="text" th:field="*{{description}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></p>
-        <p>Status zgłoszenia: <input style="color: black" class="Form" type="text" th:field="*{{result}}"/>
-            <span style="color: red;" th:if="${#fields.hasErrors('result')}" th:errors="*{result}"></span></p>
+        <p>Status zgłoszenia: <input style="color: black" class="Form" type="text" th:field="*{status}"/>
+            <span style="color: red;" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span></p>
         <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="*{{endDate}}"/>
             <span style="color: red;" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span></p>
         <p><input style="color: black" type="submit" value="Submit"/> <input style="color: black" type="reset" value="Reset"/></p>
     </form>
 </div>
-
+</section>
 </body>
 </html>

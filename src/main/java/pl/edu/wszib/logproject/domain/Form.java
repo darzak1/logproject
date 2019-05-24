@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "selectedActions")// tu nie tabela ale formularz ma być
+@Table(name = "Forms")// tu nie tabela ale formularz ma być
 public class Form {
 
     @Id
