@@ -21,7 +21,8 @@ public class RecordController {
 
         List<Log> logs = logService.getPublishedLogs();
         model.addAttribute("logs", logs);
-        return "logs/alllogs";
+        //return "logs/alllogs"; nie ma takiego pliku html logs/alllogs
+        return "records"; // ale jest records.html
 
     }
 

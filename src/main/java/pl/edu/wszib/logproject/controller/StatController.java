@@ -9,8 +9,8 @@ import pl.edu.wszib.logproject.dao.LogDao;
 import pl.edu.wszib.logproject.domain.Log;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -28,9 +28,12 @@ public class StatController {
 
 
         Map<String, Long> dataMap = logCollection.stream()
-                .collect(Collectors.groupingBy(Log::getAdmin, Collectors.counting()));
+               .collect(Collectors.groupingBy(Log::getAdmin, Collectors.counting()));
 
-        List<String> labels = (List<String>) dataMap;
+        //Błąd! Nie można rzutować Maspy do Listy
+        //List<String> labels = (List<String>) dataMap;
+
+        Set<String> labels = dataMap.keySet();
 
         model.addAttribute("dataMap", dataMap);
         model.addAttribute("labels", labels);
