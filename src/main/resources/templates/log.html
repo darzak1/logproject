@@ -14,17 +14,31 @@
         <article  style="color: blanchedalmond; font-size: 80px" align="center">Wprowadź Nowe Zgłoszenie</article>
         <form style="color: blanchedalmond" action="#" th:action="@{log}" th:object="${log}" method="post">
 
-            <p>Nazwa: <input style="color: black" type="text" th:field="*{name}" />
-                <span style="color: red;" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></p>
-
-            <p>Opis: <input style="color: black" type="text" th:field="*{description}" />
-                <span style="color: red;" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></p>
-
             <p> Data zgłoszenia: <input style="color: black"  type="datetime-local" th:field="*{entryDate}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}"></span></p>
 
+            <p>Źródło: <input style="color: black" type="text" th:field="*{source}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{source}"></span></p>
+
+            <p>Rodzaj operacji: <input style="color: black" type="text" th:field="*{opType}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{opType}"></span></p>
+
+            <p>Opis podjetych czynności: <input style="color: black" type="text" th:field="*{description}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></p>
+
+            <p>Wykonawca: <input style="color: black" type="text" th:field="*{admin}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{admin}"></span></p>
+
+            <p>Współwykonawca: <input style="color: black" type="text" th:field="*{coAdmin}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{coAdmin}"></span></p>
+
+            <p>Status: <input style="color: black" type="text" th:field="*{status}" />
+                <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{status}"></span></p>
+
             <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="*{{endDate}}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span></p>
+
+
 
             <p><input input style="color: black" type="submit" value="Submit" /> <input input style="color: black"  type="reset" value="Reset" /></p>
         </form>

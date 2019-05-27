@@ -16,14 +16,30 @@ public class Log {
     private Long id;
 
     @NotNull
-    @Size(min = 2, max = 30)
-    private String name;
-
-    private String description;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date entryDate; //data złoszenia, html
+
     @NotNull
-    private Date entryDate;
+    @Size(min = 2, max = 30)
+    private String source; //żródło zgłoszenia, html
+
+    @NotNull
+    @Size(min = 2, max = 30)
+    private String opType;//rodzaj operacji,html
+
+    @NotNull
+    @Size(min = 2, max = 500)
+    private String description; //opis podjętych czynności, html
+
+    @NotNull
+    @Size(min = 2, max = 30)
+    private String admin;//wykonawca, html,
+
+    @Size(min = 2, max = 30)
+    private String coAdmin;//współwykonawca, html
+
+    @NotNull
+    private String status;//określa realizacji zgłoszenia (pole wyboru)
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date endDate;//data zakończenia zgłoszenia
@@ -31,9 +47,19 @@ public class Log {
     public Log() {
     }
 
-    public Log(Long id, String description) {
-        this.id = id;
+
+    public Log( Date entryDate,  @Size(min = 2, max = 30) String source,
+                String opType,  @Size(min = 2, max = 30) String admin,
+               @Size(min = 2, max = 30) String coAdmin,
+                String status,  String description, Date endDate) {
+        this.entryDate = entryDate;
+        this.source = source;
+        this.opType = opType;
+        this.admin = admin;
+        this.coAdmin = coAdmin;
+        this.status = status;
         this.description = description;
+        this.endDate = endDate;
     }
 
     public Long getId() {
@@ -44,12 +70,44 @@ public class Log {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getOpType() {
+        return opType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOpType(String opType) {
+        this.opType = opType;
+    }
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
+    }
+
+    public String getCoAdmin() {
+        return coAdmin;
+    }
+
+    public void setCoAdmin(String coAdmin) {
+        this.coAdmin = coAdmin;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getDescription() {

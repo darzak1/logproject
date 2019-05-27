@@ -11,7 +11,7 @@
     <groupId>pl.edu.wszib</groupId>
     <artifactId>projekt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>projekt</name>
+    <source>projekt</source>
     <description>Projekt końcowy dla studiów podyplomowych</description>
 
     <properties>
