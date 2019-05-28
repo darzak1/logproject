@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="css/rain.css">
 </head>
 <body>
-<h1>Wszystkie wpisy</h1>
+<article  style="color: blanchedalmond; font-size: 80px" align="center">Wpisy</article>
+
+<div th:each="log : ${logs}">
+    <div>
+        <h3 th:text="${logs.listIterator()}"/>
+
+    </div>
+</div>
+
 </body>
 </html>

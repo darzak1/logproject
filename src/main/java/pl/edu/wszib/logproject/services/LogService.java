@@ -12,7 +12,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 
-//Dodaję  metodę pobierającą dodane wpisy. Metoda wpierw pobierze wszystkie wpisy później ma zwrócić
+//Dodaję  metodę pobierającą utworzone wpisy. Metoda wpierw pobierze wszystkie wpisy później ma zwrócić
 // wszystkie wpisy, których data utworzenia jest mniejsza lub równa bieżącej dacie
 
 @Service
