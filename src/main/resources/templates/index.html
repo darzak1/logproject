@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dziennik Administratora</title>
+    <link rel="stylesheet" href="css/rain.css">
+    <link rel="import" href="/templates/logoRCI.png">
+    <link rel="import" href="/img/spicon.png">
+    <style>
+        #logo {
+            border: 1px solid black;
+            background-image: url("logoRCI.png");
+            float: left;
+            width: 10%;
+            height: 70px;
+            background-repeat: no-repeat;
+            padding: 80px;
+        }
+
+        #spicon {
+            border: 1px solid black;
+            background-image: url("spicon.png");
+            float: right;
+            width: 10%;
+            height: 70px;
+            background-repeat: no-repeat;
+            padding: 80px;
+        }
+
+        #title {
+            text-align: center;
+            margin-bottom: 10px;
+            color: blanchedalmond;
+            width: 80%;
+            height: 70px;
+            font-size: 70px;
+            background-repeat: no-repeat;
+            padding: 30px;
+        }
+
+
+
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 40px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            background-color: deepskyblue;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin: 2% 10%;
+            width: 80%;
+        }
+
+        .button1:hover {
+            background-color: purple;
+
+        }
+
+        .button1:active {
+
+            background-color: #4CAF50;
+            box-shadow: #4CAF50;
+            transform: translateY(4px);;
+        }
+
+        .button2:hover {
+            background-color: crimson;
+        }
+
+        .button2:active {
+
+            background-color: crimson;
+            box-shadow: crimson;
+            transform: translateY(4px);
+        }
+
+        .button3:hover {
+            background-color: aqua;
+        }
+
+        .button3:active {
+
+            background-color: aqua;
+            box-shadow: aqua;
+            transform: translate(4px);
+        }
+    </style>
+</head>
+
+</head>
+<body>
+
+
+<div id="logo" ></div>
+<div id="spicon" ></div>
+<div id="title">Dziennik Administratora Głównego Systemu SharePoint</div>
+
+<a href="/log" target="_blank">
+    <button class="button button1">Dodaj nowy wpis</button>
+</a>
+
+<a href="/records" target="_blank">
+    <button class="button button2">Przeglądaj wpisy</button>
+</a>
+
+<a href="/stat" target="_blank">
+    <button class="button button3">Statystyka</button>
+</a>
+
+
+</body>
+<div></div>
+</html>

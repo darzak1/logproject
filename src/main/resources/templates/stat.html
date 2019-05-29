@@ -14,7 +14,7 @@
 <article  style="color: blanchedalmond; font-size: 80px" align="center">Statystyki</article>
 <article  style="color: blanchedalmond; font-size: 20px" align="center">              </article>
 <article  style="color: blanchedalmond; font-size: 40px" align="center">
-    Liczba zrealizowanych zgłoszeń przez poszczególnych administratorów</article>
+    Liczba zgłoszeń zrealizowanych przez poszczególnych administratorów</article>
 
 <div style="max-width: 800px; margin: 50px auto" >
     <canvas id="myChart" width="1600" height="900"></canvas>
@@ -32,7 +32,8 @@
                 {
                     label: "Liczba obsłużonych zgłoszeń",
                     backgroundColor: [[${labels}]],//oryginał
-                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9", "#c45850"],
+                    backgroundColor: ["#3e95cd", "#FF0000", "#FFFF00", "#FF00FF", "#4B0082", "#00FF00",
+                        "#8e5ea2","#3cba9f","#e8c3b9", "#c45850", "#008000"],
 
                     data: [[${dataMap.values()}]]
                 }

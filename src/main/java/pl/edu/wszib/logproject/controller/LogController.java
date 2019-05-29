@@ -36,5 +36,11 @@ public class LogController {
         return "log";
     }
 
+    //Metoda wyświetlająca stronę startową
+    @GetMapping("/index")
+    public String startPage() {
+        return "index";
+    }
+
 
 }
