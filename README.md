@@ -16,4 +16,8 @@ II.	Aplikacja ma zapisywać dane do MS SQL’a i pobierać te dane w razie potrz
 
 III.	Generowanie statystyk np. ilości spraw załatwionych w danym okresie, obciążenie poszczególnych administratorów itp.
 
-Aplikacja od strony frondendu będzie czymś w rodzaju formularza od strony serwerowej będzie bazować na bazie danych SQL. </h2>
+Aplikacja od strony frondendu będzie czymś w rodzaju formularza od strony serwerowej będzie bazować na bazie danych SQL. 
+
+Aplikacja uruchamia się po wpisaniu w adres przegłądarki: http://localhost:8080/index
+
+</h2>
