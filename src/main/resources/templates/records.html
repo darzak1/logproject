@@ -8,14 +8,163 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
     <link rel="stylesheet" href="css/rain.css">
+    <script src="../static/js/tableRecords.js"></script>
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 700px;
+            overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+        .pt-3-half {
+            padding-top: 1.4rem;
+        }
+    </style>
 </head>
 <body>
 <article  style="color: blanchedalmond; font-size: 80px" align="center">Wpisy</article>
 
-<div th:each="log : ${logs}">
-    <div>
-        <h3 th:text="${logs.listIterator()}"/>
+<script>
+    const $tableID = $('#table');
+    const $BTN = $('#export-btn');
+    const $EXPORT = $('#export');
 
+    const newTr = `
+ <tr class="hide">
+   <td class="pt-3-half" contenteditable="true">Example</td>
+   <td class="pt-3-half" contenteditable="true">Example</td>
+   <td class="pt-3-half" contenteditable="true">Example</td>
+   <td class="pt-3-half" contenteditable="true">Example</td>
+   <td class="pt-3-half" contenteditable="true">Example</td>
+   <td class="pt-3-half">
+     <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+     <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+   </td>
+   <td>
+     <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+   </td>
+ </tr>`;
+
+    $('.table-add').on('click', 'i', () => {
+
+        const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
+
+        if ($tableID.find('tbody tr').length === 0) {
+
+            $('tbody').append(newTr);
+        }
+
+        $tableID.find('table').append($clone);
+    });
+
+    $tableID.on('click', '.table-remove', function () {
+
+        $(this).parents('tr').detach();
+    });
+
+    $tableID.on('click', '.table-up', function () {
+
+        const $row = $(this).parents('tr');
+
+        if ($row.index() === 1) {
+            return;
+        }
+
+        $row.prev().before($row.get(0));
+    });
+
+    $tableID.on('click', '.table-down', function () {
+
+        const $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    });
+
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+
+    $BTN.on('click', () => {
+
+        const $rows = $tableID.find('tr:not(:hidden)');
+        const headers = [];
+        const data = [];
+
+        // Get the headers (add special header logic here)
+        $($rows.shift()).find('th:not(:empty)').each(function () {
+
+            headers.push($(this).text().toLowerCase());
+        });
+
+        // Turn all existing rows into a loopable array
+        $rows.each(function () {
+            const $td = $(this).find('td');
+            const h = {};
+
+            // Use the headers from earlier to name our hash keys
+            headers.forEach((header, i) => {
+
+                h[header] = $td.eq(i).text();
+            });
+
+            data.push(h);
+        });
+
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+    });
+</script>
+
+
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${logs}" class="container my-5">
+                <!--<p class="my-5">
+                    <a href="/log" class="btn btn-primary"><i
+                            class="fas fa-user-plus ml-2">Dodaj wpis</i></a>
+                </p>-->
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <h2 th:case="null">Brak wpisów</h2>
+                    <div th:case="*">
+                        <table id="dt-material-checkbox" class="table table-bordered table-striped mb-0">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Data zgłoszenia</th>
+                                <th class="text-center">Źródło</th>
+                                <th class="text-center">Rodzaj operacji</th>
+                                <th class="text-center">Opis podjetych czynności</th>
+                                <th class="text-center">Wykonawca</th>
+                                <th class="text-center">Współwykonawca</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Data zakończenia zgłoszenia</th>
+                                <th class="text-center">Edytuj wpis</th>
+                                <th class="text-center">Usuń wpis</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="log : ${logs}">
+                                <td class="th-sm" th:text="${log.entryDate}"></td>
+                                <td class="th-sm" th:text="${log.source}"></td>
+                                <td class="th-sm" th:text="${log.opType}"></td>
+                                <td class="th-sm" th:text="${log.description}"></td>
+                                <td class="th-sm" th:text="${log.admin}"></td>
+                                <td class="th-sm" th:text="${log.coAdmin}"></td>
+                                <td class="th-sm" th:text="${log.status}"></td>
+                                <td class="th-sm" th:text="${log.endDate}"></td>
+                                <td><a th:href="@{/logs/edit/{id}(id=${log.id})}
+                                " class="btn btn-primary"><i class="fas fa-log-edit ml-2"></i></a></td>
+                                <td><a th:href="@{/logs/delete/{id}(id=${log.id})}
+                                " class="btn btn-primary"><i class="fas fa-log-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
