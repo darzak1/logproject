@@ -16,7 +16,7 @@ public class Log {
     private Long id;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date entryDate; //data złoszenia, html
 
     @NotNull
