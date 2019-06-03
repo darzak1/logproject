@@ -11,6 +11,8 @@ import pl.edu.wszib.logproject.dao.LogDao;
 import pl.edu.wszib.logproject.domain.Log;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Controller
 public class LogController {
@@ -21,8 +23,12 @@ public class LogController {
     //Metoda wyświetlająca formularz (GET)
     @GetMapping("/log")
     public String showLogForm(Model model) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+        LocalDate localDate = LocalDate.now();
         model.addAttribute("log",new Log());
+        model.addAttribute("localDate", localDate);
         return "log";
+
     }
 
     //Metoda zapisująca formularz (POST)
@@ -52,7 +58,7 @@ public class LogController {
 
 
     //Metoda usuwająca wpis
-    @GetMapping("delete/{id}")
+    @GetMapping("/success/{id}")
     public String deleteLog(@PathVariable("id") long id, Model model) {
         Log log = logDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Niewłaściwy wpis: " + id));
@@ -63,7 +69,7 @@ public class LogController {
 
     // Metoda edytująca wpis
 
-    @PostMapping("update/{id}")
+    @PostMapping("/update/{id}")
     public String updateLog(@PathVariable("id") long id, @Valid Log log, BindingResult result,
                                 Model model) {
         if (result.hasErrors()) {
@@ -76,7 +82,7 @@ public class LogController {
         return "index";
     }
 
-    @GetMapping("update/{id}")
+    @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         Log log = logDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Niewłaściwy wpis: " + id));

@@ -41,7 +41,7 @@ public class Log {
     @NotNull
     private String status;//określa realizacji zgłoszenia (pole wyboru)
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;//data zakończenia zgłoszenia
 
     public Log() {

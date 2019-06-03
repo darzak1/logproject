@@ -20,7 +20,7 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
-                <form action="#" th:action="@{log}" th:object="${log}" method="post">
+                <form action="#" th:action="@{logs}" th:object="${log}" method="post">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="entrydate" class="col-form-label">Data zgłoszenia</label>
@@ -29,49 +29,49 @@
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="source" class="col-form-label">Źródło</label>
                             <input type="text" th:field="*{source}" class="form-control" id="source" placeholder="Źródło">
                             <span th:if="${#fields.hasErrors('source')}" th:errors="*{source}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="opType" class="col-form-label">Rodzaj operacji</label>
                             <input type="text" th:field="*{opType}" class="form-control" id="opType" placeholder="Rodzaj operacji">
                             <span th:if="${#fields.hasErrors('opType')}" th:errors="*{opType}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="description" class="col-form-label">Opis podjetych czynności</label>
                             <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Opis podjetych czynności">
                             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="admin" class="col-form-label">Wykonawca</label>
                             <input type="text" th:field="*{admin}" class="form-control" id="admin" placeholder="Wykonawca">
                             <span th:if="${#fields.hasErrors('admin')}" th:errors="*{admin}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="coAdmin" class="col-form-label">Współwykonawca</label>
                             <input type="text" th:field="*{coAdmin}" class="form-control" id="coAdmin" placeholder="Współwykonawca">
                             <span th:if="${#fields.hasErrors('coAdmin')}" th:errors="*{coAdmin}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="status" class="col-form-label">Status</label>
                             <input type="text" th:field="*{opType}" class="form-control" id="status" placeholder="Status">
                             <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}" class="text-danger">
                             </span>
                         </div>
 
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="endDate" class="col-form-label">Data zakończenia zgłoszenia</label>
                             <input type="date" th:field="*{endDate}" class="form-control" id="endDate" placeholder="Data zakończenia zgłoszenia">
                             <span th:if="${#fields.hasErrors('endate')}" th:errors="*{endDate}" class="text-danger">

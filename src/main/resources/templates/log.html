@@ -14,7 +14,8 @@
         <article  style="color: blanchedalmond; font-size: 80px" align="center">Wprowadź Nowe Zgłoszenie</article>
         <form style="color: blanchedalmond" action="#" th:action="@{log}" th:object="${log}" method="post">
 
-            <p> Data zgłoszenia: <input style="color: black"  type="datetime-local" th:field="*{entryDate}"/>
+            <p> Data zgłoszenia: <input style="color: black"  type="date" th:value="localDate"
+                                        th:field="*{entryDate}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}"></span></p>
 
             <p>Źródło: <input style="color: black" type="text" th:field="*{source}" />
@@ -35,7 +36,7 @@
             <p>Status: <input style="color: black" type="text" th:field="*{status}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{status}"></span></p>
 
-            <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="datetime-local" th:field="*{{endDate}}"/>
+            <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="date" th:field="*{{endDate}}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span></p>
 
 
