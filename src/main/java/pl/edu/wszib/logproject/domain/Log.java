@@ -17,7 +17,7 @@ public class Log {
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date entryDate; //data złoszenia, html
+    private Date entryDate = new Date(); //data złoszenia, html
 
     @NotNull
     @Size(min = 2, max = 30)

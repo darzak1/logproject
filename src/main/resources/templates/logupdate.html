@@ -20,12 +20,12 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
-                <form action="#" th:action="@{logs}" th:object="${log}" method="post">
+                <form action="#" th:action="@{/log}" th:object="${log}" method="post">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="entrydate" class="col-form-label">Data zgłoszenia</label>
-                            <input type="date" th:field="*{entryDate}" class="form-control" id="entrydate" placeholder="Name">
-                            <span th:if="${#fields.hasErrors('entrydate')}" th:errors="*{entryDate}" class="text-danger">
+                            <label for="entryDate" class="col-form-label">Data zgłoszenia</label>
+                            <input type="date" th:field="*{entryDate}" class="form-control" id="entryDate" placeholder="Name">
+                            <span th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}" class="text-danger">
                             </span>
                         </div>
 
@@ -74,7 +74,7 @@
                         <div class="form-group col-md-6">
                             <label for="endDate" class="col-form-label">Data zakończenia zgłoszenia</label>
                             <input type="date" th:field="*{endDate}" class="form-control" id="endDate" placeholder="Data zakończenia zgłoszenia">
-                            <span th:if="${#fields.hasErrors('endate')}" th:errors="*{endDate}" class="text-danger">
+                            <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger">
                             </span>
                         </div>
 

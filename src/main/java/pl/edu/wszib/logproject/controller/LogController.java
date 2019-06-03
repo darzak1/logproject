@@ -58,7 +58,7 @@ public class LogController {
 
 
     //Metoda usuwająca wpis
-    @GetMapping("/success/{id}")
+    @GetMapping("/log/delete/{id}")
     public String deleteLog(@PathVariable("id") long id, Model model) {
         Log log = logDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Niewłaściwy wpis: " + id));
@@ -69,7 +69,7 @@ public class LogController {
 
     // Metoda edytująca wpis
 
-    @PostMapping("/update/{id}")
+    /*@PostMapping("/log/update/{id}")
     public String updateLog(@PathVariable("id") long id, @Valid Log log, BindingResult result,
                                 Model model) {
         if (result.hasErrors()) {
@@ -80,9 +80,9 @@ public class LogController {
         logDao.save(log);
         model.addAttribute("logs", logDao.findAll());
         return "index";
-    }
+    }*/
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/log/update/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
         Log log = logDao.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Niewłaściwy wpis: " + id));
