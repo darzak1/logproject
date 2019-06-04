@@ -3,128 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <title>Dziennik Administratora</title>
-    <link rel="stylesheet" href="css/rain.css">
-    <link rel="import" href="/static/images/logoRCI.png">
-    <link rel="import" href="/static/images/spicon.png">
-    <link rel="import" href="/static/images/logoRCI.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/navigation_index.css">
+
     <style>
-        #logo {
-            border: 1px solid black;
-            background-image: image("static/images/logoRCI.png");
-            float: left;
-            width: 10%;
-            height: 25%;
-            background-repeat: no-repeat;
-            padding: 80px;
+
+        .center {
+            margin: auto;
+            width: 100%;
+            padding: 12%;
+            text-align-last: center;
+            font-size: 80px;
         }
 
-        #spicon {
-            border: 1px solid black;
-            background-image: url("static/images/spicon.png");
-            float: right;
-            width: 10%;
-            height: 25%;
-            background-repeat: no-repeat;
-            padding: 80px;
-        }
+    </style>
+    <!--    <style>
+            #logo {
+                border: 1px solid black;
+                background-image: image("static/img/logoRCI.png");
+                float: left;
+                width: 10%;
+                height: 25%;
+                background-repeat: no-repeat;
+                padding: 80px;
+            }
 
-        #title {
-            text-align: center;
-            color: blanchedalmond;
-            font-size: 60px;
-            background-repeat: no-repeat;
-            padding: 30px;
-        }
+            #spicon {
+                border: 1px solid black;
+                background-image: url("static/img/spicon.png");
+                float: right;
+                width: 10%;
+                height: 25%;
+                background-repeat: no-repeat;
+                padding: 80px;
+            }
 
-
-
-
-        .button {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 40px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            outline: none;
-            background-color: deepskyblue;
-            color: #fff;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 9px #999;
-            margin: 2% 10%;
-            width: 80%;
-        }
-
-        .button1:hover {
-            background-color: purple;
-
-        }
-
-        .button1:active {
-
-            background-color: #4CAF50;
-            box-shadow: #4CAF50;
-            transform: translateY(4px);;
-        }
-
-        .button2:hover {
-            background-color: crimson;
-        }
-
-        .button2:active {
-
-            background-color: crimson;
-            box-shadow: crimson;
-            transform: translateY(4px);
-        }
-
-        .button3:hover {
-            background-color: aqua;
-        }
-
-        .button3:active {
-
-            background-color: aqua;
-            box-shadow: aqua;
-            transform: translate(4px);
-        }
-
-        #footer img {
-            display: inline-block;
-            max-width: 100%;
-            max-height: 20%;
-            background-image: image("/static/images/sharepoint.jpg");
-        }
+            #title {
+                text-align: center;
+                color: blanchedalmond;
+                font-size: 60px;
+                background-repeat: no-repeat;
+                padding: 30px;
+            }
 
 
-       </style>
+
+
+            .button {
+                display: inline-block;
+                padding: 15px 25px;
+                font-size: 40px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                background-color: deepskyblue;
+                color: #fff;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 9px #999;
+                margin: 2% 10%;
+                width: 80%;
+            }
+
+            .button1:hover {
+                background-color: purple;
+
+            }
+
+            .button1:active {
+
+                background-color: #4CAF50;
+                box-shadow: #4CAF50;
+                transform: translateY(4px);;
+            }
+
+            .button2:hover {
+                background-color: crimson;
+            }
+
+            .button2:active {
+
+                background-color: crimson;
+                box-shadow: crimson;
+                transform: translateY(4px);
+            }
+
+            .button3:hover {
+                background-color: aqua;
+            }
+
+            .button3:active {
+
+                background-color: aqua;
+                box-shadow: aqua;
+                transform: translate(4px);
+            }
+
+            #footer img {
+                display: inline-block;
+                max-width: 100%;
+                max-height: 20%;
+                background-image: image("/static/img/sharepoint.jpg");
+            }
+
+
+           </style>-->
 </head>
 
-</head>
-<body>
+
+<!--<body>
 
 
 <div id="logo" ></div>
 <div id="spicon" ></div>
 <div id="title">Dziennik Administratora Głównego Systemu SharePoint</div>
-<div>
+<div class="form-group col-md-8">
 <a href="/log" target="_blank">
-    <button class="button button1">Dodaj nowy wpis</button>
+    <button class="btn btn-primary">Dodaj nowy wpis</button>
 </a>
 
 <a href="/records" target="_blank">
-    <button class="button button2">Przeglądaj wpisy</button>
+    <button class="btn btn-primary">Przeglądaj wpisy</button>
 </a>
 
 <a href="/stat" target="_blank">
-    <button class="button button3">Statystyka</button>
+    <button class="btn btn-primary">Statystyka</button>
 </a>
 </div>
 
 
-<div id="footer"></div>
+<div id="footer"></div>-->
+
+<!--nawigacja 2-->
+<body>
+<header>
+
+    <nav  class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index" style="font-size: 20px">Start<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/log" style="font-size: 20px">Nowy wpis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/records" style="font-size: 20px">Dziennik</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stat" style="font-size: 20px">Statystyki</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="view intro-2">
+        <div class="center" style="color: blanchedalmond" align="center">Dziennik Administratora Głównego Systemu SharePoint
+        </div>
+    </div>
+
+
+</header>
+
+<!--Main Navigation-->
+
+<!--Main Layout-->
+
 
 </body>
-<div></div>
 </html>

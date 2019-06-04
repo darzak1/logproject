@@ -1,0 +1,10 @@
+.view {
+    background: url("/static/img/mainBackground.jpg")no-repeat center center;
+    background-size: cover;
+}
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
