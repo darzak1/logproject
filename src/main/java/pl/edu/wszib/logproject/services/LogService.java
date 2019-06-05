@@ -24,10 +24,15 @@ public class LogService {
     public List<Log> getPublishedLogs(){
 
         List<Log> logs = recordDao.findAll();
+
+
+        //tutaj jest sprawdzenie czy czas bieżący jest wcześniej niż cza bieżący ;)
         LocalDateTime now = LocalDateTime.now();
         Predicate<Log> predicate = post -> {
             return now.isBefore (LocalDateTime.now());
         };
+
+
         return logs.stream().filter(predicate).collect(Collectors.toList());
 
 

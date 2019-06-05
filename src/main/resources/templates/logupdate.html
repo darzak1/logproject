@@ -66,7 +66,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="status" class="col-form-label">Status</label>
-                            <input type="text" th:field="*{opType}" class="form-control" id="status" placeholder="Status">
+                            <input type="text" th:field="*{status}" class="form-control" id="status" placeholder="Status">
                             <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}" class="text-danger">
                             </span>
                         </div>
