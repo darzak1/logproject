@@ -8,49 +8,101 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
-    <link rel="stylesheet" href="css/rain.css">
-</head>
-<body>
-<article  style="color: blanchedalmond; font-size: 80px" align="center">Statystyki</article>
-<article  style="color: blanchedalmond; font-size: 20px" align="center">              </article>
-<article  style="color: blanchedalmond; font-size: 40px" align="center">
-    Liczba zgłoszeń zrealizowanych przez poszczególnych administratorów</article>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/navigation_index.css">
 
-<div style="max-width: 800px; margin: 50px auto" >
-    <canvas id="myChart" width="1600" height="900"></canvas>
-</div>
+    <style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
-<script th:inline="javascript">
-
-    new Chart(document.getElementById("myChart"), {
-        type: 'bar',
-        data: {
-            labels:  [[${dataMap.keySet()}]],
-            datasets: [
-                {
-                    label: "Liczba obsłużonych zgłoszeń",
-                    backgroundColor: [[${labels}]],//oryginał
-                    backgroundColor: ["#3e95cd", "#FF0000", "#FFFF00", "#FF00FF", "#4B0082", "#00FF00",
-                        "#8e5ea2","#3cba9f","#e8c3b9", "#c45850", "#008000"],
-
-                    data: [[${dataMap.values()}]]
-                }
-            ]
-        },
-        options: {
-            legend: {display: false},
-            scales: {
-                yAxes: [{
-                    ticks: {beginAtZero: true, stepSize: 1},
-                }]
-            }
+        .left {
+            margin: auto;
+            width: 100%;
+            padding: 4%;
+            text-align-last: left;
+            font-size: 20px;
 
         }
-    });
 
-</script>
+    </style>
+</head>
+<body>
+<header>
+
+    <nav  class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index" style="font-size: 20px">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/log" style="font-size: 20px">Nowy wpis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/records" style="font-size: 20px">Dziennik</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/stat" style="font-size: 20px">Statystyki<span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="view intro-2">
+        <div class="left">
+        <article  style="color: blanchedalmond; font-size: 20px" align="center">              </article>
+        <article  style="color: blanchedalmond; font-size: 40px" align="center">
+            Liczba zgłoszeń zrealizowanych przez poszczególnych administratorów</article>
+
+        <div style="max-width: 800px; margin: 50px auto" >
+            <canvas id="myChart" width="1600" height="900"></canvas>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <script th:inline="javascript">
+
+            Chart.defaults.global.defaultFontColor = 'blanchedalmond';
+
+            new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                    labels:  [[${dataMap.keySet()}]],
+                    datasets: [
+                        {
+                            label: "Liczba obsłużonych zgłoszeń",
+                            backgroundColor: [  "#7FFFD4", "#FFFF00", "#00FF00", "#FF00FF", "#4B0082", "#7B68EE",
+                                "#8e5ea2","#3cba9f","#e8c3b9", "#c45850", "#FFFFFF" ],
+
+                            data: [[${dataMap.values()}]]
+                        }
+                    ]
+                },
+                options: {
+                    legend: {display: false},
+                    scales:  {
+                        yAxes: [{
+                            ticks: {beginAtZero: true, stepSize: 1},
+                        }],
+
+                    }
+
+
+                }
+            });
+
+        </script>
+        </div>
+        </div>
+    </div>
+
+
+</header>
+
 
 
 </body>

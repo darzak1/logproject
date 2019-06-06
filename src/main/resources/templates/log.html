@@ -7,41 +7,91 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/navigation_index.css">
+
+    <style>
+
+        .left {
+            margin: auto;
+            width: 100%;
+            padding: 4%;
+            text-align-last: left;
+            font-size: 20px;
+        }
+
+    </style>
+
 </head>
 <body>
-    <div class="container">
-        <article  style="color: blanchedalmond; font-size: 80px" align="center">Wprowadź Nowe Zgłoszenie</article>
+<header>
+
+    <nav  class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index" style="font-size: 20px">Start</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/log" style="font-size: 20px">Nowy wpis<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/records" style="font-size: 20px">Dziennik</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stat" style="font-size: 20px">Statystyki</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="view intro-2">
+        <div class="left">
+
+        <article  style="color: blanchedalmond; font-size: 60px" align="center">Wprowadź Nowe Zgłoszenie</article>
         <form style="color: blanchedalmond" action="#" th:action="@{log}" th:object="${log}" method="post">
 
-            <p> Data zgłoszenia: <input style="color: black"  type="date" th:value="localDate"
+            <p> Data zgłoszenia: <input style="background-color: transparent"  type="date" th:value="localDate"
                                         th:field="*{entryDate}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('entryDate')}" th:errors="*{entryDate}"></span></p>
 
-            <p>Źródło: <input style="color: black" type="text" th:field="*{source}" />
+            <p>Źródło: <input style="background-color: transparent" type="text" th:field="*{source}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{source}"></span></p>
 
-            <p>Rodzaj operacji: <input style="color: black" type="text" th:field="*{opType}" />
+            <p>Rodzaj operacji: <input style="background-color: transparent" type="text" th:field="*{opType}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{opType}"></span></p>
 
-            <p>Opis podjetych czynności: <input style="color: black" type="text" th:field="*{description}" />
+            <p>Opis podjetych czynności: <input style="background-color: transparent" type="text" th:field="*{description}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></p>
 
-            <p>Wykonawca: <input style="color: black" type="text" th:field="*{admin}" />
+            <p>Wykonawca: <input style="background-color: transparent" type="text" th:field="*{admin}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{admin}"></span></p>
 
-            <p>Współwykonawca: <input style="color: black" type="text" th:field="*{coAdmin}" />
+            <p>Współwykonawca: <input style="background-color: transparent" type="text" th:field="*{coAdmin}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{coAdmin}"></span></p>
 
-            <p>Status: <input style="color: black" type="text" th:field="*{status}" />
+            <p>Status: <input style="background-color: transparent" type="text" th:field="*{status}" />
                 <span style="color: red;" th:if="${#fields.hasErrors('source')}" th:errors="*{status}"></span></p>
 
-            <p>Data zakończenia zgłoszenia: <input style="color: black" class="Form" type="date" th:field="*{{endDate}}"/>
+            <p>Data zakończenia zgłoszenia: <input style="background-color: transparent" class="Form" type="date" th:field="*{{endDate}}"/>
                 <span style="color: red;" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></span></p>
 
 
 
-            <p><input input style="color: black" type="submit" value="Zapisz" /> <input input style="color: black"  type="reset" value="Reset" /></p>
+            <p><input input style="background-color: transparent" type="submit" value="Zapisz" />
+                <input input style="background-color: transparent"  type="reset" value="Reset" /></p>
         </form>
     </div>
+    </div>
+
+
+</header>
+
 </body>
 </html>
