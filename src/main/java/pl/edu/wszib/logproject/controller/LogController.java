@@ -29,7 +29,7 @@ public class LogController {
 
     }
 
-    //Metoda zapisująca formularz (POST)
+    //Metoda zapisująca i aktualizująca formularz (POST)
     @PostMapping("/log")
     public String saveLogForm(@Valid Log log, BindingResult bindingResult) {
 
@@ -64,7 +64,8 @@ public class LogController {
         return "success";
     }
 
-    // Metoda edytująca wpis
+
+      // Metoda edytująca wpis
 
     @GetMapping("/log/update/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
@@ -75,6 +76,9 @@ public class LogController {
         return "logupdate";
     }
 
+
+    //TO JEST ZBĘDNE - DO USUNIĘCIA
+    /*
 // Metoda edytująca wpis
 
   @PostMapping("/logupdate/{id}")
@@ -89,7 +93,7 @@ public class LogController {
         model.addAttribute("logs", logDao.findAll());
         return "success";
     }
-
+*/
 
 
 }

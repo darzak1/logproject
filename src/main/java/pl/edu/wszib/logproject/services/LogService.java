@@ -25,17 +25,16 @@ public class LogService {
 
         List<Log> logs = recordDao.findAll();
 
+        //TO NIE MA SENSU - DO POPRAWY!
+        //tutaj jest sprawdzenie czy czas bieżący jest wcześniej niż czas bieżący ;)
+        //LocalDateTime now = LocalDateTime.now();
+        //Predicate<Log> predicate = post -> {
+        //    return now.isBefore (LocalDateTime.now());
+        //};
 
-        //tutaj jest sprawdzenie czy czas bieżący jest wcześniej niż cza bieżący ;)
-        LocalDateTime now = LocalDateTime.now();
-        Predicate<Log> predicate = post -> {
-            return now.isBefore (LocalDateTime.now());
-        };
+        //return logs.stream().filter(predicate).collect(Collectors.toList());
 
-
-        return logs.stream().filter(predicate).collect(Collectors.toList());
-
-
+        return logs;
     }
 
 }
